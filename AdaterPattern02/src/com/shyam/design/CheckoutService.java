@@ -9,10 +9,11 @@ public static void main(String[] args) {
 	PaymentProcessor payPal=new PayPalProcessor();
 	service.checkout(payPal);
 	
-	//Using Stripe via Adapter
 	
-	StripePaymentGateway stripe=new StripePaymentGateway();
-	StripeAdapter stripeAdapter=new StripeAdapter(stripe);
+	//Using Stripe Adapter
+	StripePaymentGateway stripeGateway=new StripePaymentGateway();
+	PaymentProcessor stripeAdapter=new StripeAdapter(stripeGateway);
 	service.checkout(stripeAdapter);
+	
 }
 }
